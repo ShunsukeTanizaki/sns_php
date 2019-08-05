@@ -15,15 +15,12 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) { //セッシ�
 
 if (!empty($_POST)) {
   if ($_POST['message'] !== '') {
-    $message = $db->prepare('INSERT INTO `posts` SET `member_id`=?, `message`=?, `reply_message_id`=?,`created`= NOW();');
-    
-    // var_dump($message);
+    $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, reply_message_id=?, created=NOW()');
     $message->execute(array(
       $member['id'],
       $_POST['message'],
       $_POST['reply_post_id']
     ));
-    var_dump($_POST['reply_post_id']);
 
     header('Location: index.php'); //再読み込み重複防止処理
     exit();
@@ -86,7 +83,7 @@ if (isset($_REQUEST['res'])) {
     <form action="" id="form" method="post">
       <dl>
         <dt>
-          <?php print(htmlspecialchars($member['name']. "さんでログイン中", ENT_QUOTES)); ?>
+          <?php print(htmlspecialchars($member['name']. "", ENT_QUOTES)); ?>
         </dt>
         <dd>
           <textarea id="targetbox" name="message" cols="36" rows="5"><?php print (htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
@@ -94,8 +91,7 @@ if (isset($_REQUEST['res'])) {
         </dd>
       </dl>
       <div>
-        <p><input class="btn" type="submit" value="投稿する" />
-</p>
+        <p><input class="btn" type="submit" value="投稿する" /></p>
       </div>
     </form>
 
