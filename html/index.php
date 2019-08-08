@@ -15,11 +15,16 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) { //セッシ�
 
 if (!empty($_POST)) {
   if ($_POST['message'] !== '') {
+    if ($_POST['reply_post_id'] === '') {
+       $reply = 0;
+      } else {
+        $reply = $_POST['reply_post_id'];
+      }
     $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, reply_message_id=?, created=NOW()');
     $message->execute(array(
       $member['id'],
       $_POST['message'],
-      $_POST['reply_post_id']
+      $reply
     ));
 
     header('Location: index.php'); //再読み込み重複防止処理
