@@ -8,11 +8,11 @@ if (!isset($_SESSION['join'])) {
 }
 if (!empty($_POST)) {
   $statement = $db->prepare('INSERT INTO members SET name=?, email=?, password=?, picture=?, created=NOW()');
-  echo $statement->execute(array(
-       $_SESSION['join']['name'],
-       $_SESSION['join']['email'],
-       sha1($_SESSION['join']['password']),
-       $_SESSION['join']['image']
+  $statement->execute(array(
+    $_SESSION['join']['name'],
+    $_SESSION['join']['email'],
+    sha1($_SESSION['join']['password']),
+    $_SESSION['join']['image']
   ));
   unset($_SESSION['join']); //セッション変数を空にする
 

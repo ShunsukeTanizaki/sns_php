@@ -18,13 +18,13 @@ if (!empty($_POST)) {
     if ($_POST['reply_post_id'] === '') {
        $reply = 0;
       } else {
-        $reply = $_POST['reply_post_id'];
+        $reply_id = $_POST['reply_post_id'];
       }
     $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, reply_message_id=?, created=NOW()');
     $message->execute(array(
       $member['id'],
       $_POST['message'],
-      $reply
+      $reply_id
     ));
 
     header('Location: index.php'); //再読み込み重複防止処理
