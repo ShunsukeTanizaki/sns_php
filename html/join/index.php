@@ -2,7 +2,7 @@
 session_start();
 require('../dbconnect.php');
 
-// $error['name'] = '';
+$error['name'] = '';
 
 if (!empty($_POST)) {
   if ($_POST['name'] === '') {
