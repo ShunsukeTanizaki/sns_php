@@ -20,11 +20,17 @@ if (!empty($_POST)) {
       } else {
         $replyPostId = $_POST['reply_post_id'];
       }
-    $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, reply_message_id=?, created=NOW()');
-    $message->execute(array(
+      $fimage = date('YmdHis') . $_FILES['post_image']['name'];
+      move_uploaded_file($_FILES['post_image']['tmp_name'],'post_image/' . $fimage);
+      $_SESSION['join']['post_image'] = $fimage;
+
+      $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, reply_message_id=?, post_image=?,created=NOW()');
+      $message->execute(array(
       $member['id'],
       $_POST['message'],
-      $replyPostId
+      $replyPostId,
+      $_SESSION['join']['post_image']
+      // $_POST['post_image']
     ));
 
     header('Location: index.php'); //再読み込み重複防止処理
@@ -65,6 +71,7 @@ if (isset($_REQUEST['res'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
   <title>掲示板</title>
 
   <link rel="stylesheet" href="style.css" />
@@ -84,8 +91,8 @@ if (isset($_REQUEST['res'])) {
     </div>
   
   
-
-    <form action="" id="form" method="post">
+    
+    <form action="" id="form" method="post" enctype="multipart/form-data">
       <dl>
         <dt>
           <?php print(htmlspecialchars($member['name']. "", ENT_QUOTES)); ?>
@@ -94,11 +101,20 @@ if (isset($_REQUEST['res'])) {
           <textarea id="targetbox" name="message" cols="36" rows="5"><?php print (htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
           <input type="hidden" name="reply_post_id" value="<?php print(htmlspecialchars($_REQUEST['res'], ENT_QUOTES)); ?>" />
         </dd>
+        <dd>
+          <h2>画像を投稿する</h2>
+          <div class="view_box">
+            <input type="file" class="file" name="post_image">
+          </div>
+          
+        </dd>
       </dl>
       <div>
         <p><input class="btn" type="submit" value="投稿する" /></p>
       </div>
     </form>
+
+    
 
   <?php foreach ($posts as $post): ?>
     <div class="msg">
@@ -116,6 +132,11 @@ if (isset($_REQUEST['res'])) {
           style="color: #F33;">削除</a>]
         <?php endif; ?>
       </p>
+      <?php if ($post['post_image'] != '' ): ?>
+        <div class="www">
+          <img src="post_image/<?php print(htmlspecialchars($post['post_image'], ENT_QUOTES)); ?>" width="48" height="48" alt="" id="post_image" />
+        </div>
+        <?php endif; ?>
     </div>
    <?php endforeach; ?>
 
@@ -134,5 +155,7 @@ if (isset($_REQUEST['res'])) {
     </ul>
   </div>
 </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>

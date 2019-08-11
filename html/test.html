@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+<?php
+$tempfile = $_FILES['fname']['tmp_name'];
+$filename = './' . $_FILES['fname']['name'];
+ 
+if (is_uploaded_file($tempfile)) {
+    if ( move_uploaded_file($tempfile , $filename )) {
+	echo $filename . "をアップロードしました。";
+    } else {
+        echo "ファイルをアップロードできません。";
+    }
+} else {
+    echo "ファイルが選択されていません。";
+} 
+?>
+<div class="view_box">
+    <form action="up.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="fname">
+      <input type="submit" value="アップロード">
+    </form>
+
+<input type="file" name="image" size="35" value="test" />
+
+
+</body>
+</html>

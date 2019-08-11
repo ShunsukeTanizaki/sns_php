@@ -236,6 +236,10 @@ li {
   font-size: 80%;
   color: #999;
 }
+#post_image {
+  width: 200px;
+  height: 200px;
+}
 
 #targetbox {
   border: 2px solid #106eb7;  /* 枠線 */

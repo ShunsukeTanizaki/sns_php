@@ -107,7 +107,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
       <p class="error">*「.jpg」「.gif」「.png」の画像を指定してください</p>
       <?php endif; ?>
       <?php if (!empty($error)): ?>
-      <p class="error">*画像を再指定してください</p>
+      <!-- <p class="error">*画像を再指定してください</p> -->
       <?php endif; ?>
 
     </dd>
