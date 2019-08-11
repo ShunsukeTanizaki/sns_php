@@ -1,9 +1,4 @@
-/*
-Copyright (c) 2010, Yahoo! Inc. All rights reserved.
-Code licensed under the BSD License:
-http://developer.yahoo.com/yui/license.html
-version: 2.8.1
-*/
+
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
   margin: 0;
   padding: 0;
@@ -77,12 +72,7 @@ input,button,textarea,select,optgroup,option {
 input,button,textarea,select {
   *font-size: 100%;
 }
-/*
-Copyright (c) 2010, Yahoo! Inc. All rights reserved.
-Code licensed under the BSD License:
-http://developer.yahoo.com/yui/license.html
-version: 2.8.1
-*/
+
 body {
   font: 13px/1.231 arial,helvetica,clean,sans-serif;*font-size: small;*font:x-small;
 }
@@ -159,6 +149,9 @@ dt {
   padding: 5px 12px;
   margin-bottom: 5px;
 }
+dt p {
+  vertical-align: top;
+}
 dd {
   margin-bottom: 0.5em;
 }
@@ -203,6 +196,7 @@ li {
 .paging {
   margin-top: 10px;
   text-align: center;
+  
 }
 .paging li {
   display: inline;
@@ -227,6 +221,7 @@ li {
 .msg img {
   float: left;
   margin-right: 5px;
+  border-radius: 50%;
 }
 .msg p {
   margin: 0;
@@ -237,8 +232,8 @@ li {
   color: #999;
 }
 #post_image {
-  width: 200px;
-  height: 200px;
+  max-width: 100%;
+  height: auto;
 }
 
 #targetbox {
@@ -257,6 +252,10 @@ li {
   padding: 0 0.5em;
   border-radius: 0.6em;
   background: linear-gradient(to top, #106eb7 0%, #fff 300%);
+}
+
+body .name {
+  color: red;
 }
 
 @media screen and (max-width : 767px){
