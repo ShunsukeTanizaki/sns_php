@@ -1,13 +1,100 @@
+@charset "utf-8";
 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
   margin: 0;
   padding: 0;
 }
 
+body {
+ width: 100%;
+  color: #333;
+  background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 90%);
+  /* background: yellow; */
+  font: 13px/1.231 arial,helvetica,clean,sans-serif;*font-size: small;*font:x-small;
+}
+
+#wrap {
+  padding: 0 20px;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#header {
+  border: solid 2px  #106eb7;
+  /* border-radius: 30px; */
+  background: #106eb7;
+  background: linear-gradient(to top, #106eb7 0%, #fff 300%);
+  color: #fff;
+  padding: 10px;
+  /* ヘッダー固定 */
+  /* position:fixed;
+  top:0;
+  left:0;
+  z-index:24;
+  width:100%; */
+}
+
+#header p {
+  display: inline-block;
+  font-size: 25px;
+  /* text-align:center */
+}
+
+#header a {
+  float: right;
+}
+
+#content {
+  /* padding: 50px 0px 0px; */
+  margin: 20px auto;
+  font-size: 153.9%;
+  /* background-color: #BB1850; */
+}
+
+#login_user {
+  height: 62px;
+  vertical-align:text-bottom;
+}
+
+#login_user p {
+  padding: 20px 20px 20px 75px;
+  margin-right: 30px; 
+  font-size: 120%;
+  /* font-weight: bold; */
+}
+
+#form>p {
+  font-size: 120%;
+}
+
+.file {
+  padding: 10px;
+}
+
+#content .btn {
+  /* float: right; */
+}
+
+#content img {
+  float: left;
+  border: 1px solid #085a99;
+
+}
+
 a {
   text-decoration: none;
   color: #106eb7;
-  }
+}
+
+.btn {
+  color: #fff;
+  /* background:  #106eb7; */
+  border: 1px solid #085a99;
+  padding: 0 0.5em;
+  border-radius: 0.6em;
+  background: linear-gradient(to top, #106eb7 0%, #fff 300%);
+}
+
 .btn a {
   text-decoration: none;
   color: #fff;
@@ -60,7 +147,8 @@ sub {
   vertical-align: baseline;
 }
 
-legend {color: #000;
+legend {
+  color: #000;
 }
 
 input,button,textarea,select,optgroup,option {
@@ -72,16 +160,12 @@ input,button,textarea,select,optgroup,option {
 input,button,textarea,select {
   *font-size: 100%;
 }
-
-body {
-  font: 13px/1.231 arial,helvetica,clean,sans-serif;*font-size: small;*font:x-small;
-}
- 
 select,input,button,textarea,button {
   font: 99% arial,helvetica,clean,sans-serif;
 }
 
-table{font-size: inherit;
+table{
+  font-size: inherit;
   font: 100%;
 }
 
@@ -89,27 +173,6 @@ pre,code,kbd,samp,tt {
   font-family:monospace;
   *font-size:108%;
   line-height:100%;
-}
-
-body {
-  /* background: url(images/bg_main.png) top center repeat-y #eeeeee; */
- width: 100%;
-  color: #333;
-  background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 90%);
-}
-
-#wrap {
-  width: 802px;
-  margin: 0 auto;
-}
-
-#head {
-  border: solid 2px  #106eb7;
-  border-radius: 30px;
-  /* background: #106eb7; */
-  background: linear-gradient(to top, #106eb7 0%, #fff 300%);
-  color: #fff;
-  padding: 20px;
 }
 
 h1 {
@@ -123,13 +186,7 @@ h2 {
   margin-bottom: 0.5em;
 }
 
-#content {
-  padding: 20px;
-  min-height: 490px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  font-size: 153.9%;
-}
+
 
 * html #content {
   height: 490px;
@@ -194,9 +251,8 @@ li {
 }
 
 .paging {
-  margin-top: 10px;
+  margin-top: 100px;
   text-align: center;
-  
 }
 .paging li {
   display: inline;
@@ -218,25 +274,27 @@ li {
   border-top: 1px solid #ccc;
   padding: 10px 0;
 }
-.msg img {
-  float: left;
+.msg>img {
+  border:1px solid #106eb7;
+  /* box-shadow: 5px 5px 10px #000; */
   margin-right: 5px;
-  border-radius: 50%;
+  margin-bottom: 20px;
+  float: left;
 }
 .msg p {
   margin: 0;
+  line-height: 2.5em;
+  margin-bottom: 0.5em;
+  font-size: 150%;
 }
 .msg .day,
 .msg .day a {
   font-size: 80%;
   color: #999;
 }
-#post_image {
-  max-width: 100%;
-  height: auto;
-}
 
 #targetbox {
+  margin-top: 20px; 
   border: 2px solid #106eb7;  /* 枠線 */
   border-radius: 0.33em;   /* 角丸 */
   padding: 0.5em;          /* 内側の余白量 */
@@ -245,18 +303,19 @@ li {
   height: 5em;             /* 高さ */
 }
 
-.btn {
-  color: #fff;
-  /* background:  #106eb7; */
-  border: 2px solid #085a99;
-  padding: 0 0.5em;
-  border-radius: 0.6em;
-  background: linear-gradient(to top, #106eb7 0%, #fff 300%);
+.footer {
+  /* background-color: blueviolet; */
 }
 
-body .name {
-  color: red;
+.column {
+  /* background: #BB1850; */
+  /* background-color: chocolate; */
+  border-bottom: 20px solid orange;
 }
+
+
+
+
 
 @media screen and (max-width : 767px){
   img {

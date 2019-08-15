@@ -25,7 +25,7 @@ $(document).ready(function () {
   {
      target.find("a.img_del").on('click',function(){
 
-      if(window.confirm('サーバーから画像を削除します。\nよろしいですか？'))
+      if(window.confirm('選択した画像を削除します。\nよろしいですか？'))
       {
          $(this).parent().find('input[type=file]').val('');
          $(this).parent().find('.img_view, br').remove();

@@ -72,79 +72,66 @@ if (isset($_REQUEST['res'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
   <title>掲示板</title>
-
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<div id="wrap">
-  <div id="head">
-    <h1>掲示板</h1>
+  <div id="header">
+    <p>掲示板</p>
+      <!-- <a href="login.php"><button type="button" name="name" value="value">ログイン</button></a> -->
+      <a href="logout.php"><button class="btn" type="button" name="name" value="value">ログアウト</button></a>
   </div>
-  <div id="content">
-    <!-- <div style="text-align: right"><a href="login.php">ログイン</a></div> -->
-    <div id="logout " style="text-align: right">
-      <button class="btn">
-        <a href="logout.php">ログアウト</a>
-      </button>
-    </div>
-  
-  
-    
-    <form action="" id="form" method="post" enctype="multipart/form-data">
-      <dl>
-        <dt>
-         <img src="member_picture/<?php print(htmlspecialchars($member['picture']. "", ENT_QUOTES)); ?>" width="50" height="50" alt="<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>" style="border-radius:50% ;"/>
-          <p><?php print(htmlspecialchars($member['name']. "", ENT_QUOTES)); ?></p>
-        </dt>
-        <dd>
-          <textarea id="targetbox" name="message" cols="36" rows="5"><?php print (htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
+  <div id="wrap">
+    <div id="content">
+      <div id="login_user">
+        <img src="member_picture/<?php print(htmlspecialchars($member['picture']. "", ENT_QUOTES)); ?>" width="60" height="60" alt="<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>" style="border-radius:50% ;"/>
+        <p><?php print(htmlspecialchars($member['name']. "", ENT_QUOTES)); ?></p>
+      </div>
+      <form action="" id="form" method="post" enctype="multipart/form-data">
+        <textarea id="targetbox" name="message" cols="36" rows="5"><?php print (htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
           <input type="hidden" name="reply_post_id" value="<?php print(htmlspecialchars($_REQUEST['res'], ENT_QUOTES)); ?>" />
-        </dd>
-        <dd>
           <h2>画像を投稿する</h2>
           <div class="view_box">
             <input type="file" class="file" name="post_image">
           </div>
-          
-        </dd>
-      </dl>
-      <div>
-        <p><input class="btn" type="submit" value="投稿する" /></p>
-      </div>
-    </form>
-
+          <div>
+            <p><input class="btn" type="submit" value="投稿する" /></p>
+          </div>
+      </form>
+    </div>
     
 
+<div class="column">
   <?php foreach ($posts as $post): ?>
     <div class="msg">
       <img src="member_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>" width="50" height="50" alt="<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>" style="border-radius:50% ;"/>
-      <p><span class="name"><?php print(htmlspecialchars($post['name'],ENT_QUOTES)); ?></span>[<a href="index.php?res=<?php print (htmlspecialchars($post['id'],ENT_QUOTES)); ?>">Re</a>]</p>
+      <p><span class="name"><?php print(htmlspecialchars($post['name'],ENT_QUOTES)); ?></span>(<a href="index.php?res=<?php print (htmlspecialchars($post['id'],ENT_QUOTES)); ?>">Re</a>)<p>
       <p class="day"><a href="view.php?id=<?php print(htmlspecialchars($post['id'])); ?>"><?php print(htmlspecialchars($post['created'], ENT_QUOTES)); ?></a>
       <?php if ($post['reply_message_id'] > 0): ?>
         <a href="view.php?id=<?php print(htmlspecialchars($post['reply_message_id'])); ?>">
         返信元のメッセージ</a>
-      <?php endif; ?>
+        <?php endif; ?>
 
-      <?php if ($_SESSION['id'] == $post['member_id']): ?>
+        <?php if ($_SESSION['id'] == $post['member_id']): ?>
         [<a href="delete.php?id=<?php print(htmlspecialchars($post['id'])); ?>"
           style="color: #F33;">削除</a>]
-      <?php endif; ?>
+        <?php endif; ?>
+      </p>
       <?php if ($post['post_image'] != '' ): ?>
-      <div class="post_img">
+      <!-- <div class="post_img"> -->
         <img src="post_image/<?php print(htmlspecialchars($post['post_image'], ENT_QUOTES)); ?>" width="200"  alt="" id="post_image" />
         <p><?php print(htmlspecialchars($post['message'], ENT_QUOTES)); ?></p>
-      </div>
-        
+      <!-- </div> -->
       <?php endif; ?>
     </div>
-   <?php endforeach; ?>
+  <?php endforeach; ?>
+</div>
+
+  
 
 
 
-  <div class="footer">
+<div class="footer">
   <ul class="paging">
     <?php if($page > 1): ?>
       <li  class="btn-flat-border"><a href="index.php?page=<?php print($page-1); ?>">前のページへ</a></li>
@@ -157,8 +144,8 @@ if (isset($_REQUEST['res'])) {
     <?php else: ?>
       <li>次のページへ</li>
     <?php endif; ?>
-    </ul>
-  </div>
+  </ul>
+</div>
 
   </div>
 </div>
