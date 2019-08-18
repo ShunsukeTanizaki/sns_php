@@ -32,16 +32,22 @@ if (!empty($_POST)) {
 </head>
 <body>
 <div id="wrap">
-<div id="head">
-<h1>会員登録</h1>
-</div>
+  <div id="header">
+   <p>会員登録</p>
+  </div>
 
-<div id="content">
+<div id="contents">
 <p>記入した内容を確認して、「登録する」ボタンをクリックしてください</p>
 <form action="" method="post">
   <input type="hidden" name="action" value="submit" />
   <dl>
-    <dt>ニックネーム</dt>
+  <dt>
+    <?php if ($_SESSION['join']['image'] !== ''): ?>
+    <img src="../member_picture/<?php print(htmlspecialchars ($_SESSION['join']['image'], ENT_QUOTES)); ?> " alt="" class="icon" width="100" height="100" style="border-radius:50% ;">
+    <?php endif; ?></dt>
+    <dd>
+    </dd>
+    <dt>お名前</dt>
     <dd>
     <?php print (htmlspecialchars($_SESSION['join']['name'],ENT_QUOTES)); ?>
     </dd>
@@ -51,16 +57,13 @@ if (!empty($_POST)) {
     </dd>
     <dt>パスワード</dt>
     <dd>
-    【表示されません】
-    </dd>
-    <dt>写真など</dt>
-    <dd>
-    <?php if ($_SESSION['join']['image'] !== ''): ?>
-      <img src="../member_picture/<?php print(htmlspecialchars ($_SESSION['join']['image'], ENT_QUOTES)); ?> " alt="">
-    <?php endif; ?>
+      ****
     </dd>
   </dl>
-  <div><a href="index.php?action=rewrite">&laquo;&nbsp;書き直す</a> | <input type="submit" value="登録する" /></div>
+  <a href="index.php?action=rewrite">&laquo;&nbsp;書き直す</a>
+  <div class="confirmation">
+    <input class="btn btn-mod btn-border btn-circle btn-small" type="submit" value="登録する" />
+  </div>
 </form>
 </div>
 

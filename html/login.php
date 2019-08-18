@@ -35,9 +35,9 @@ if (!empty($_POST)) {
   }
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
@@ -46,8 +46,8 @@ if (!empty($_POST)) {
 
 <body>
 <div id="wrap">
-  <div id="head">
-    <h1>ようこそ！</h1>
+  <div id="header">
+    <p>ようこそ！</p>
   </div>
   <div id="content">
     <div id="lead">
@@ -57,7 +57,7 @@ if (!empty($_POST)) {
       <dl>
         <dt>メールアドレス</dt>
         <dd>
-          <input type="text" name="email" size="35" maxlength="255" value="<?php print (htmlspecialchars($email, ENT_QUOTES)); ?>" />
+          <input type="text" name="email" size="35" maxlength="255" placeholder="email" value="<?php print (htmlspecialchars($email, ENT_QUOTES)); ?>" />
           <?php if ($error['login'] === 'blank'): ?>
             <p class="error">メールアドレスとパスワードを入力してください</p>
           <?php endif; ?> 
@@ -67,7 +67,7 @@ if (!empty($_POST)) {
         </dd>
         <dt>パスワード</dt>
         <dd>
-          <input type="password" name="password" size="35" maxlength="255" value="<?php print (htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
+          <input type="password" name="password" size="35" maxlength="255" placeholder="password" value="<?php print (htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
         </dd>
         <dt>ログイン情報の記録</dt>
         <dd>
@@ -76,11 +76,11 @@ if (!empty($_POST)) {
         </dd>
       </dl>
       <div>
-        <input type="submit" class="btn" value="ログイン" />
+        <input type="submit" class="btn btn-mod btn-border btn-circle btn-small" value="ログイン" />
       </div>
       <div class="admissionProcedure">
       <p>入会手続きがまだの方はこちらからどうぞ。</p>
-      <p>&raquo;<a href="join/">入会手続きをする</a></p>
+      <p><a href="join/" class="btn btn-mod btn-border btn-circle btn-small">入会手続きをする</a></p>
       </div>
     </form>
   </div>

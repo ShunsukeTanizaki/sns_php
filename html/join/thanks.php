@@ -10,15 +10,16 @@
 </head>
 <body>
 <div id="wrap">
-<div id="head">
-<h1>会員登録</h1>
-</div>
+  <div id="header">
+    <p>会員登録</p>
+  </div>
+  <div id="content">
+    <div class="thanks">
+      <p>ユーザー登録が完了しました</p>
+      <p><a href="../" class="btn btn-mod btn-border btn-circle btn-small">ログインする</a></p>
 
-<div id="content">
-<p>ユーザー登録が完了しました</p>
-<p><a href="../">ログインする</a></p>
-</div>
-
+    </div>
+  </div>
 </div>
 </body>
 </html>
