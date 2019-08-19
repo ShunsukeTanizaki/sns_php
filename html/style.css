@@ -6,7 +6,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 }
 
 body {
- width: 100%;
+  width: 100%;
   color: #333;
   background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 90%);
   font: 13px/1.231 arial,helvetica,clean,sans-serif;*font-size: small;*font:x-small;
@@ -451,10 +451,25 @@ a.btn-mod:focus{
     *font-size: 100%;
   }
 
+
   #form #targetbox {
     width: 94%;
     /* height: 200px; */
   }
+
+  #login_user p {
+    display: none;
+  }
+
+  input {
+    width: 94%;
+  }
+  #save {
+    width: 13px;
+    margin: 7px 5px 0px 0px;
+    float: left;
+  }
+
   #content img {
     margin: 20px 0px;
     /* border: 2px solid #085a99;
