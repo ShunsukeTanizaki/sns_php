@@ -14,24 +14,27 @@ if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) { //セッシ�
 }
 
 if (!empty($_POST)) {
-  if ($_POST['message'] !== '' || $_POST['post_image'] !== '') { //???
+  if ($_POST['message'] !== '' || $_FILES['post_image']['name'] !== '') {
+
     if ($_POST['reply_post_id'] === '') {
-       $replyPostId = 0;
-      } else {
-        $replyPostId = $_POST['reply_post_id'];
-      }
+      $replyPostId = 0;
+    } else {
+      $replyPostId = $_POST['reply_post_id'];
+    }
+    if ($_FILES['post_image']['name'] !== '') {
       $fimage = date('YmdHis') . $_FILES['post_image']['name'];
       move_uploaded_file($_FILES['post_image']['tmp_name'],'post_image/' . $fimage);
       $_SESSION['join']['post_image'] = $fimage;
+    } else {
+      $fimage = '';
+    }
 
-      $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, reply_message_id=?, post_image=?,created=NOW()');
-      $message->execute(array(
-      $member['id'],
-      $_POST['message'],
-      $replyPostId,
-      $fimage
-      // $_SESSION['join']['post_image']
-      // $_POST['post_image']
+    $message = $db->prepare('INSERT INTO posts SET member_id=?, message=?, reply_message_id=?, post_image=?,created=NOW()');
+    $message->execute(array(
+    $member['id'],
+    $_POST['message'],
+    $replyPostId,
+    $fimage
     ));
 
     header('Location: index.php'); //再読み込み重複防止処理
@@ -50,7 +53,7 @@ $cnt = $counts->fetch();
 $maxPage = ceil($cnt['cnt'] / 5);
 $page = min($page, $maxPage);
 
-$start = ($page - 1) * 5;
+$start = ($page - 1) * 5; //表示数
 
 $posts = $db->prepare('SELECT m.name, m.picture, p.* FROM members m, posts p WHERE m.id=p.member_id ORDER BY p.created DESC LIMIT ?,5');
 $posts->bindParam(1, $start, PDO::PARAM_INT);
@@ -66,6 +69,7 @@ if (isset($_REQUEST['res'])) {
   $message = '@' . $table['name'] . ' ' . $table['message'].'>';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
