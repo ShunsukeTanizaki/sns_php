@@ -21,6 +21,7 @@ if (!empty($_POST)) {
     } else {
       $replyPostId = $_POST['reply_post_id'];
     }
+
     if ($_FILES['post_image']['name'] !== '') {
       $fimage = date('YmdHis') . $_FILES['post_image']['name'];
       move_uploaded_file($_FILES['post_image']['tmp_name'],'post_image/' . $fimage);
