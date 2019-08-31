@@ -49,6 +49,10 @@ body {
   padding:3px 8px 2px;
 }
 
+#form {
+  margin-left: 55px;
+}
+
 #content {
   /* padding: 50px 0px 0px; */
   margin: 15px auto 15px;
@@ -294,7 +298,7 @@ li {
   /* border-radius: 0.33em;   角丸 */
   padding: 0.5em;          /* 内側の余白量 */
   background-color: #fff;  /* 背景色 */
-  width: 60%;             /* 横幅 */
+  width: 70%;             /* 横幅 */
   height: 10em;             /* 高さ */
 }
 
