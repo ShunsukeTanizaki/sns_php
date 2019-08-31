@@ -8,7 +8,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 body {
   width: 100%;
   color: #333;
-  /* background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 90%); */
+  background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 80%);
   font: 13px/1.231 arial,helvetica,clean,sans-serif;*font-size: small;*font:x-small;
   background-repeat: no-repeat;
   /* height: 100vh; */
@@ -54,11 +54,8 @@ body {
 }
 
 #content {
-  /* padding: 50px 0px 0px; */
   margin: 15px auto 15px;
-  padding: 0px 10px;
   font-size: 153.9%;
-  /* background-color: #BB1850; */
 }
 #contents {
   margin: 20px auto 35px;
@@ -68,7 +65,6 @@ body {
 
 #content p{
   margin: 10px 0px;
-  /* text-align: center; */
 }
 
 #login_user {
@@ -294,12 +290,12 @@ li {
 
 #targetbox {
   margin: 10px 0px 10px; 
-  border: 2px solid #106eb7;  /* 枠線 */
+  border: 2px solid #106eb7;
   /* border-radius: 0.33em;   角丸 */
-  padding: 0.5em;          /* 内側の余白量 */
-  background-color: #fff;  /* 背景色 */
-  width: 70%;             /* 横幅 */
-  height: 10em;             /* 高さ */
+  padding: 0.5em;
+  background-color: #fff;
+  width: 70%;
+  height: 10em;
 }
 
 input {
@@ -326,7 +322,6 @@ input {
   height: 1000px;
 }
 .footer {
-  /* background-color: blueviolet; */
   height: 70px;
   padding-bottom: 10px;
   text-align: center;
@@ -431,8 +426,21 @@ a.btn-mod:focus{
   .msg,
   .paging
   .form {
-    width: 95%;
-    margin-left:5px;
+    max-width: 100%;
+    /* margin-left:5px; */
+    padding: 0 5px;
+  }
+
+  #header {
+    padding: 7px 0px;
+  }
+
+  #header a {
+    margin-top: 25px;
+  }
+
+  .msg {
+    padding: 10px 0px;
   }
 
   #targetbox {
@@ -443,7 +451,6 @@ a.btn-mod:focus{
     width: 90%;             /* 横幅 */
     height: 3em;             /* 高さ */
     }
-  
 
   input,button,textarea,select,optgroup,option {
     font-family: inherit;
@@ -455,10 +462,12 @@ a.btn-mod:focus{
     *font-size: 100%;
   }
 
+  #form {
+    margin-left: 0px;
+  }
 
   #form #targetbox {
     width: 94%;
-    /* height: 200px; */
   }
 
   #login_user p {
@@ -482,10 +491,18 @@ a.btn-mod:focus{
   }
 
   #post_image {
-    margin-left: 0px;
-    height: 100%;
-    width: 100%;
+    margin: 10px 0px;
+    height: 95%;
+    width: 95%;
     text-align: center;
+  }
+
+  #post_message {
+    margin-left: 0px;
+  }
+
+  #re {
+    margin-left: 0px;
   }
 
 }
