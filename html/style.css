@@ -8,7 +8,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 body {
   width: 100%;
   color: #333;
-  background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 90%);
+  /* background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 90%); */
   font: 13px/1.231 arial,helvetica,clean,sans-serif;*font-size: small;*font:x-small;
   background-repeat: no-repeat;
   /* height: 100vh; */
@@ -51,7 +51,7 @@ body {
 
 #content {
   /* padding: 50px 0px 0px; */
-  margin: 20px auto 35px;
+  margin: 15px auto 15px;
   padding: 0px 10px;
   font-size: 153.9%;
   /* background-color: #BB1850; */
@@ -280,12 +280,16 @@ li {
   color: #999;
 }
 
+#post_image {
+  height: 350px;
+}
+
 #post_image, #post_message, #re {
   margin-left: 65px;
 }
 
 #targetbox {
-  margin: 20px 0px 0px; 
+  margin: 10px 0px 10px; 
   border: 2px solid #106eb7;  /* 枠線 */
   /* border-radius: 0.33em;   角丸 */
   padding: 0.5em;          /* 内側の余白量 */
@@ -297,6 +301,7 @@ li {
 input {
   border: 2px solid #106eb7;
   padding: 2px;
+  width: 110px;
 }
 
 .admissionProcedure {
@@ -394,8 +399,8 @@ a.btn-mod:focus{
   border: 2px solid #106eb7;
   background: transparent;
 }
-.btn-mod.btn-border:hover,
-.btn-mod.btn-border:focus{
+
+.btn-mod.btn-border:hover, .btn-mod.btn-border:focus{
   color: #fff;
   border-color: transparent;
   background: #106eb7;
@@ -406,11 +411,6 @@ a.btn-mod:focus{
   -moz-border-radius: 30px;
   border-radius: 30px;
 }
-
-
-
-
-
 
 
 @media screen and (max-width : 767px){
@@ -462,7 +462,7 @@ a.btn-mod:focus{
   }
 
   input {
-    width: 94%;
+    text-align: center;
   }
   #save {
     width: 13px;
@@ -471,14 +471,17 @@ a.btn-mod:focus{
   }
 
   #content img {
-    margin: 20px 0px;
-    /* border: 2px solid #085a99;
-    border-radius: 10px; */
+    margin: 0px 0px;
     height: auto;
-    max-width: 100%;
-    max-height: 100%;
     margin: auto 0px;
     display: block;
+  }
+
+  #post_image {
+    margin-left: 0px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
   }
 
 }

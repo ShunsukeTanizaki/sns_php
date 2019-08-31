@@ -126,7 +126,7 @@ if (isset($_REQUEST['res'])) {
         <?php endif; ?>
         </p>
         <?php if ($post['post_image'] != '' ): ?>
-        <img src="post_image/<?php print(htmlspecialchars($post['post_image'], ENT_QUOTES)); ?>" height="250"  alt="" id="post_image" />
+        <img src="post_image/<?php print(htmlspecialchars($post['post_image'], ENT_QUOTES)); ?>" alt="" id="post_image" />
           <?php endif; ?>
         <p id="post_message"><?php print nl2br(htmlspecialchars($post['message'], ENT_QUOTES)); ?></p>
         <a id="re" href="index.php?res=<?php print (htmlspecialchars($post['id'],ENT_QUOTES)); ?>">この投稿に返信</a>
