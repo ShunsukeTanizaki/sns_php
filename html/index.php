@@ -103,7 +103,7 @@ if (isset($_REQUEST['res'])) {
       <div id="send">
         <textarea id="targetbox" name="message" cols="36" rows="5" wrap="hard" placeholder="コメントを入力してください" style="white-space: pre-line;"><?php print (htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
         <input type="hidden" name="reply_post_id" value="<?php print(htmlspecialchars($_REQUEST['res'], ENT_QUOTES)); ?>" />
-        <p><input class="btn btn-mod btn-border btn-circle btn-small" type="submit" value="投稿" /></p>
+        <p><input class="btn btn-mod btn-border btn-circle btn-small btnsub" type="submit" value="投稿" /></p>
       </div>
     </form>
   </div>

@@ -59,25 +59,26 @@ if (!empty($_POST)) {
         <dt>メールアドレス</dt>
         <dd>
           <input type="text" name="email" size="35" maxlength="255" placeholder="email" value="<?php print (htmlspecialchars($email, ENT_QUOTES)); ?>" />
-          <?php if ($error['login'] === 'blank'): ?>
-            <p class="error">メールアドレスとパスワードを入力してください</p>
-          <?php endif; ?> 
-          <?php if ($error['login'] === 'feiled'): ?>
-            <p class="error">ログインに失敗しました</p>
-          <?php endif; ?>  
         </dd>
         <dt>パスワード</dt>
         <dd>
           <input type="password" name="password" size="35" maxlength="255" placeholder="password" value="<?php print (htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
         </dd>
-        <dt>ログイン情報の記録</dt>
+        <dt>
+          <?php if ($error['login'] === 'blank'): ?>
+            <p class="error">メールアドレスとパスワードを入力してください</p>
+          <?php endif; ?> 
+          <?php if ($error['login'] === 'feiled'): ?>
+            <p class="error">ログインに失敗しました</p>
+          <?php endif; ?>
+        </dt>
         <dd>
           <input id="save" type="checkbox" name="save" value="on">
           <label for="save">次回からは自動的にログインする</label>
         </dd>
       </dl>
       <div>
-        <input type="submit" class="btn btn-mod btn-border btn-circle btn-small" value="ログイン" />
+        <input type="submit" class="btn btn-mod btn-border btn-circle btn-small  btnsub" value="ログイン" />
       </div>
       <div class="admissionProcedure">
       <p>入会手続きがまだの方はこちらからどうぞ。</p>

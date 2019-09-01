@@ -4,14 +4,16 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
   margin: 0;
   padding: 0;
 }
-
+html {
+  height: 100vh;
+}
 body {
   width: 100%;
   color: #333;
-  background: linear-gradient(to top, rgb(197, 244, 245) 0%, #fff 80%);
+  background: #f8f8f8;;
   font: 13px/1.231 arial,helvetica,clean,sans-serif;*font-size: small;*font:x-small;
   background-repeat: no-repeat;
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 #wrap {
@@ -301,7 +303,6 @@ li {
 input {
   border: 2px solid #106eb7;
   padding: 2px;
-  width: 110px;
 }
 
 .admissionProcedure {
@@ -313,9 +314,7 @@ input {
 
 .confirmation {
   margin: 40px 0px 20px;
-}
-
-.confirmation {
+  padding-left: 15px;
   font-size:10px;
 }
 .thank{
@@ -411,6 +410,10 @@ a.btn-mod:focus{
   border-radius: 30px;
 }
 
+.btnsub {
+  width:100px;
+}
+
 
 @media screen and (max-width : 767px){
   img {
@@ -445,11 +448,11 @@ a.btn-mod:focus{
 
   #targetbox {
     border: 2px solid #106eb7;
-    border-radius: 0.33em;   
-    padding: 0.5em;          /* 内側の余白量 */
-    background-color: #fff;  /* 背景色 */
-    width: 90%;             /* 横幅 */
-    height: 3em;             /* 高さ */
+    border-radius: 0.33em;
+    padding: 0.5em;
+    background-color: #fff;
+    width: 88%;
+    height: 3em;
     }
 
   input,button,textarea,select,optgroup,option {
@@ -473,10 +476,6 @@ a.btn-mod:focus{
   #login_user p {
     display: none;
   }
-
-  input {
-    text-align: center;
-  }
   #save {
     width: 13px;
     margin: 7px 5px 0px 0px;
@@ -494,7 +493,6 @@ a.btn-mod:focus{
     margin: 10px 0px;
     height: 95%;
     width: 95%;
-    text-align: center;
   }
 
   #post_message {
@@ -505,4 +503,7 @@ a.btn-mod:focus{
     margin-left: 0px;
   }
 
+  input {
+    width: 90%;
+  }
 }

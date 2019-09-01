@@ -115,7 +115,7 @@ if ($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])) {
       </dd>
     </dl>
   <div class="confirmation">
-    <input type="submit" class="btn btn-mod btn-border btn-circle btn-small" value="進む"/>
+    <input type="submit" class="btn btn-mod btn-border btn-circle btn-small btnsub" value="進む"/>
   </div>
   <div class="footer">
   </div>
