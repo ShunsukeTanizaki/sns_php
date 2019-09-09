@@ -37,8 +37,12 @@ if (!empty($_POST)) {
   }
 
   if (empty($error)) {
+    if ($_FILES['image']['name'] !== '') {
     $image = date('YmdHis') . $_FILES['image']['name'];
     move_uploaded_file($_FILES['image']['tmp_name'],'../member_picture/' . $image);
+  } else {
+    $image = '2019icon.png';
+  }
     $_SESSION['join'] = $_POST;
     $_SESSION['join']['image'] = $image;
     header('Location: check.php');
