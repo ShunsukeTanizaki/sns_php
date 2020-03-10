@@ -56,7 +56,7 @@ if (!empty($_POST)) {
     </div>
     <form action="" method="post">
       <dl>
-        <dt>メールアドレス</dt>
+        <dt>メールアドレス<span>[お試し用]</span></dt>
         <dd>
           <input type="text" name="email" size="35" maxlength="255" placeholder="email" value="<?php print (htmlspecialchars($email, ENT_QUOTES)); ?>" />
         </dd>

@@ -6,17 +6,18 @@ require('../dbconnect.php');
 
 if (!empty($_POST)) {
   if ($_POST['name'] === '') {
-      $error['name'] = 'blank';
+    $error['name'] = 'blank';
   }
   if ($_POST['email'] === '') {
-      $error['email'] = 'blank';
+    $error['email'] = 'blank';
   }
   if (strlen($_POST['password']) < 4) {
-      $error['password'] = 'length';
+    $error['password'] = 'length';
   }
   if ($_POST['password'] === '') {
-      $error['password'] = 'blank';
+    $error['password'] = 'blank';
   }
+
   $fileName = $_FILES['image']['name'];
   if (!empty($fileName)) {
     $ext = substr($fileName, -3);
@@ -41,7 +42,7 @@ if (!empty($_POST)) {
     $image = date('YmdHis') . $_FILES['image']['name'];
     move_uploaded_file($_FILES['image']['tmp_name'],'../member_picture/' . $image);
   } else {
-    $image = '2019icon.png';
+    $image = '2019icon.png'; //仮ユーザーアイコン
   }
     $_SESSION['join'] = $_POST;
     $_SESSION['join']['image'] = $image;
